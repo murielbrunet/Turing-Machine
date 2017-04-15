@@ -1,0 +1,26 @@
+; TMeq3.txt
+; CSC250, A7
+; Jenny Huang & Muriel Brunet 
+; accepts every binary string of exactly 3 bits, and rejects all others
+; empty string should be rejected
+
+0 * * * len1
+
+; input, replace, movement
+len1 _ * * halt-reject
+len1 1 * r len2
+len1 0 * r len2
+len1 * * * halt-reject
+
+len2 _ * * halt-reject
+len2 1 * r len3
+len2 0 * r len3
+len2 * * * halt-reject
+
+len3 _ * * halt-reject
+len3 1 * r len4
+len3 0 * r len4
+len3 * * * halt-reject
+
+len4 _ * * halt-accept
+len4 * * * halt-reject

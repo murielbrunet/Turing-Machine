@@ -1,0 +1,32 @@
+; TMmult1s.txt
+; A8
+; unary multiplication
+; CSC 250 Spring 2017
+; Muriel Brunet
+
+0 * * * start
+
+start a * r start
+start 1 a r loop
+start x * * halt-accept
+start * * * halt-reject
+
+loop x * r mult
+loop * * r loop
+
+mult b * r mult
+mult 1 b r print
+mult = * l reset
+
+print _ 1 l return
+print * * r print
+
+return b * r mult
+return x * l reset
+return * * l return
+
+reset x * l restart
+reset b 1 l reset
+
+restart 1 * l restart
+restart a * r start

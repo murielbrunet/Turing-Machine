@@ -1,0 +1,13 @@
+; CSC 250 Spring 2017
+; balanced number of 0s
+
+; 0 is the even state
+
+0 _ * * halt-accept
+0 0 * r odd
+0 * * r 0
+
+
+odd 0 * r 0
+odd _ * * halt-reject
+odd * * r odd

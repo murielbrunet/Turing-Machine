@@ -1,0 +1,20 @@
+; TMbin1.txt
+; CSC 250, A9
+; Muriel Brunet
+; adds 1 to a binary number
+; 4/15/17
+
+
+0 * * * start
+
+start 0 * r start
+start 1 * r start
+start _ * l add
+start * * * halt-reject ;reject if it's not binary
+
+add 0 1 * halt-accept ;simply add 1 and accept
+add 1 0 l carryOne ;carry a 1
+
+carryOne 0 1 * halt-accept ;simply add 1 and accept
+carryOne 1 0 l carryOne ;carry a 1
+carryOne _ 1 * halt-accept ;simply add 1 and accept

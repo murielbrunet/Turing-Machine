@@ -1,0 +1,31 @@
+; TM2x1.txt
+; CSC 250, A7
+; Muriel Brunet
+; takes exactly twice as many 1s as there are 0s
+; 4/4/17
+
+0 * * * start
+
+start _ * * halt-accept
+start # * r start
+start 0 # r toEnd
+start 1 * r skipOne
+
+
+skipOne 0 # r toEnd
+skipOne _ * * halt-reject
+skipOne * * r skipOne 
+
+toEnd _ * l getFirst
+toEnd * * r toEnd
+
+getFirst _ * * halt-reject
+getFirst 1 # l getSecond
+getFirst * * l getFirst
+
+getSecond _ * * halt-reject
+getSecond 1 # l toStart
+getSecond * * l getSecond
+
+toStart _ * r start
+toStart * * l toStart

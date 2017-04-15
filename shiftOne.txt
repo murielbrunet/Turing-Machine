@@ -1,0 +1,14 @@
+; shiftOne.txt
+; CSC 250 Spring 2017
+; shift bit string over one
+
+0 0 _ r got0
+0 1 _ r got1
+
+got0 0 0 r got0
+got0 1 0 r got1
+got0 _ 0 * halt-accept
+
+got1 0 1 r got0
+got1 1 1 r got1
+got1 _ 1 * halt-accept

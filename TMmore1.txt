@@ -1,0 +1,22 @@
+; TMmore1.txt
+; CSC 250, A7
+; Muriel Brunet
+; takes bit strings with one more 1 than 0s
+
+0 * * * start
+
+start _ * * halt-reject
+start # * r start
+start 0 * r start
+start 1 # r lookRight
+
+lookRight _ * l lookLeft
+lookRight 0 # l backToStart
+lookRight * * r lookRight
+
+backToStart _ * r start
+backToStart * * l backToStart
+
+lookLeft _ * * halt-accept
+lookLeft 0 # l backToStart
+lookLeft * * l lookLeft

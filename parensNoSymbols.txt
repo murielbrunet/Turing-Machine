@@ -1,0 +1,20 @@
+; CSC 250 Spring 2017
+; balanced parentheses
+
+0 ( _ r move-right
+0 ) * * halt-reject
+0 _ * * halt-accept
+0 * * * halt-reject
+
+move-right ( * r move-right
+move-right ) * r move-right
+move-right _ * l erase
+move-right * * * halt-reject
+
+erase _ * * halt-reject
+erase ) _ l move-left
+erase ( * * halt-reject
+
+move-left ( * l move-left
+move-left ) * l move-left
+move-left _ * r 0

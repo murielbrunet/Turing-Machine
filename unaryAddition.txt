@@ -1,0 +1,22 @@
+; Unary addition
+; CSC 250
+; 4/3/17
+
+0 * * * q1
+
+q1 1 % r q2
+q1 = * * replace
+q1 * * r q1
+
+
+q2 _ * * q3
+q2 * * r q2
+
+q3 _ 1 l q4
+
+q4 * * l q4
+q4 % * r q1
+
+replace % 1 l replace
+replace _ * * halt-accept
+replace * * l replace
